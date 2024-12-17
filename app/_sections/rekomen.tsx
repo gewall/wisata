@@ -3,7 +3,15 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Card from "../_components/Card";
 
-const Populer = () => {
+function shuffleArray(array: any[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // Indeks acak antara 0 dan i
+    [array[i], array[j]] = [array[j], array[i]]; // Tukar elemen
+  }
+  return array;
+}
+
+const Rekomen = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState<string>();
 
@@ -33,17 +41,19 @@ const Populer = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
       {data != undefined &&
-        data?.slice(0, 4).map((_, i) => (
-          <Fragment key={i}>
-            <Card
-              nama={_["NAMA OBYEK DAYA TARIK WISATA"]}
-              alamat={_["ALAMAT"]}
-              slug={_["SLUG"]}
-            />
-          </Fragment>
-        ))}
+        shuffleArray(data)
+          ?.slice(0, 4)
+          .map((_, i) => (
+            <Fragment key={i}>
+              <Card
+                nama={_["NAMA OBYEK DAYA TARIK WISATA"]}
+                alamat={_["ALAMAT"]}
+                slug={_["SLUG"]}
+              />
+            </Fragment>
+          ))}
     </div>
   );
 };
 
-export default Populer;
+export default Rekomen;

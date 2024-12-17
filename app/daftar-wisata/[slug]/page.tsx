@@ -4,7 +4,28 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import React from "react";
 
-const page = () => {
+export async function generateStaticParams() {
+  const posts = await fetch(process.env.BASE_URL + "/api/excel").then((res) =>
+    res.json()
+  );
+  return posts.data.map((post: any) => ({
+    slug: post["SLUG"],
+  }));
+}
+
+const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  async function getPost(slug: string) {
+    const res = await fetch(process.env.BASE_URL + "/api/excel", {
+      cache: "force-cache",
+    });
+    const post = await res.json();
+    const result = post.data.find((e: any) => e["SLUG"] === slug);
+    return result;
+  }
+
   return (
     <PageLayout>
       <div className="container p-8">
@@ -18,7 +39,7 @@ const page = () => {
         </div>
         <div className="py-4">
           <h2 className="scroll-m-20 border-b pb-2 text-3xl text-center font-semibold tracking-tight first:mt-0">
-            Panyaweuyan
+            {post["NAMA OBYEK DAYA TARIK WISATA"]}
           </h2>
           <p className="leading-7 text-justify">
             Pos pengamatan puncak bukit yang menghadap sawah terasering, bukit
@@ -30,9 +51,7 @@ const page = () => {
               <tr className="m-0  p-0 ">
                 <td className=" w-16 font-bold py-2 text-left">Lokasi</td>
                 <td className=" w-1">:</td>
-                <td className="py-2 text-left">
-                  Sukasari Kidul, Kec. Argapura, Kabupaten Majalengka
-                </td>
+                <td className="py-2 text-left">{post["ALAMAT"]}</td>
               </tr>
               <tr className="m-0  p-0 ">
                 <td className="w-16 font-bold  py-2 text-left">Telepon</td>
@@ -64,7 +83,7 @@ const page = () => {
           <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
             Galeri
           </h4>
-          <div className="grid grid-cols-4 gap-4 py-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
             <Image
               src={"https://placehold.co/600x400"}
               alt="Image "

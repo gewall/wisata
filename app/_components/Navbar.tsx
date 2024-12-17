@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Menu, Search, X } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { Fragment, useState } from "react";
 
 export interface iNavbarItem {
@@ -13,13 +14,24 @@ export interface iNavbarItem {
 
 const Navbar = ({ links }: { links?: iNavbarItem[] }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    const val = event.target.cari.value;
+    router.push("/daftar-wisata?cari=" + val);
+  };
   return (
     <Fragment>
       <nav className="flex justify-between items-center px-8 py-4">
         {/* Logo */}
         <div className="text-xl font-bold">Wisata</div>
-        <form className="relative w-44 md:w-96">
-          <Input />
+        <form
+          method="POST"
+          className="relative w-44 md:w-96"
+          onSubmit={handleSubmit}
+        >
+          <Input name="cari" type="text" />
           <Button
             type="submit"
             className="absolute right-0 top-0"
@@ -73,38 +85,17 @@ const Navbar = ({ links }: { links?: iNavbarItem[] }) => {
       {isOpen && (
         <div className="md:hidden bg-gray-50 border-t">
           <ul className="flex flex-col space-y-4 p-4">
-            <li>
-              <a
-                href="#home"
-                className="block text-gray-600 hover:text-gray-800"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="block text-gray-600 hover:text-gray-800"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#services"
-                className="block text-gray-600 hover:text-gray-800"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="block text-gray-600 hover:text-gray-800"
-              >
-                Contact
-              </a>
-            </li>
+            {links?.map((_, i) => (
+              <li key={i}>
+                <Link
+                  href={_.url}
+                  className="block text-gray-600 hover:text-gray-800"
+                >
+                  {_.name}
+                </Link>
+              </li>
+            ))}
+
             {/* <li>
               <Button className="w-full" variant="outline">
                 Login
