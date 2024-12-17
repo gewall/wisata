@@ -1,4 +1,3 @@
-import Image from "next/image";
 import PageLayout from "./_components/PageLayout";
 import Hero from "./_sections/hero";
 import { Metadata } from "next";

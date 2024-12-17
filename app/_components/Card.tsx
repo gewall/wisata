@@ -4,9 +4,7 @@ import Rating from "./Rating";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-type Props = {};
-
-const Card = (props: Props) => {
+const Card = () => {
   return (
     <div className="border-2 border-slate-200 rounded-lg max-w-full md:max-w-80  flex flex-col">
       <div className="relative w-full h-48 overflow-hidden">

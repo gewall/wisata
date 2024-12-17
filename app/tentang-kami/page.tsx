@@ -1,9 +1,7 @@
 import React from "react";
 import PageLayout from "../_components/PageLayout";
 
-type Props = {};
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <PageLayout>
       <div className="container p-8">

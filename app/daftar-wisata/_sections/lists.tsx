@@ -10,9 +10,7 @@ import {
 } from "@/components/ui/pagination";
 import React from "react";
 
-type Props = {};
-
-const Lists = (props: Props) => {
+const Lists = () => {
   return (
     <div>
       <div className="grid grid-cols-4 gap-4">

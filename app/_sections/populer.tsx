@@ -1,9 +1,7 @@
 import React from "react";
 import Card from "../_components/Card";
 
-type Props = {};
-
-const Populer = (props: Props) => {
+const Populer = () => {
   return (
     <div>
       <Card />

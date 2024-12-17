@@ -4,9 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <PageLayout>
       <div className="container p-8">
