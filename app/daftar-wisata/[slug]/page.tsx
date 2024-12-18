@@ -1,17 +1,24 @@
 import PageLayout from "@/app/_components/PageLayout";
 import Rating from "@/app/_components/Rating";
 import { Badge } from "@/components/ui/badge";
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 
-export async function generateStaticParams() {
-  const posts = await fetch(process.env.BASE_URL + "/api/excel").then((res) =>
-    res.json()
-  );
-  return posts.data.map((post: any) => ({
-    slug: post["SLUG"],
-  }));
-}
+export const metadata: Metadata = {
+  title: "Sistem Informasi Rekomendasi Wisata",
+  description: "Sistem Informasi Rekomendasi Wisata",
+};
+// export async function generateStaticParams() {
+//   const posts = await fetch(process.env.BASE_URL + "/api/excel").then((res) =>
+//     res.json()
+//   );
+//   console.log(posts);
+
+//   return posts.data.map((post: any) => ({
+//     slug: post["SLUG"],
+//   }));
+// }
 
 const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
@@ -25,6 +32,8 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
     const result = post.data.find((e: any) => e["SLUG"] === slug);
     return result;
   }
+
+  console.log(slug);
 
   return (
     <PageLayout>

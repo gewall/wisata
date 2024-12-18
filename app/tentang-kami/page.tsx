@@ -1,6 +1,10 @@
 import React from "react";
 import PageLayout from "../_components/PageLayout";
-
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Sistem Informasi Rekomendasi Wisata",
+  description: "Sistem Informasi Rekomendasi Wisata",
+};
 const page = () => {
   return (
     <PageLayout>

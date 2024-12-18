@@ -1,7 +1,8 @@
 import { Metadata } from "next";
-import React from "react";
+import React, { Suspense } from "react";
 import PageLayout from "../_components/PageLayout";
 import Lists from "./_sections/lists";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export const metadata: Metadata = {
   title: "Sistem Informasi Rekomendasi Wisata",
@@ -16,7 +17,11 @@ const page = () => {
           Daftar Wisata di Majalengka
         </h3>
         <div className="py-4">
-          <Lists />
+          <Suspense
+            fallback={<Skeleton className="w-[100px] h-[20px] rounded-full" />}
+          >
+            <Lists />
+          </Suspense>
         </div>
       </div>
     </PageLayout>
