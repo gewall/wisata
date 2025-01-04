@@ -9,14 +9,16 @@ export interface iWisata {
   alamat?: string;
   slug?: string;
   kunjungan?: number;
+  cover?: string;
+  rating?: number;
 }
 
-const Card = ({ alamat, kunjungan, slug, nama }: iWisata) => {
+const Card = ({ alamat, kunjungan, slug, nama, cover, rating }: iWisata) => {
   return (
     <div className="border-2 border-slate-200 rounded-lg max-w-full md:max-w-80  flex flex-col">
       <div className="relative w-full h-48 overflow-hidden">
         <Image
-          src="https://placehold.co/600x400"
+          src={`https://drive.google.com/uc?export=view&id=${cover}`}
           alt="Wisata"
           fill
           objectFit="cover"
@@ -27,7 +29,7 @@ const Card = ({ alamat, kunjungan, slug, nama }: iWisata) => {
           {nama}
         </h4>
         <p className="py-2">{alamat}</p>
-        <Rating rating={4} />
+        <Rating rating={rating || 0} />
       </div>
       <div className="p-2">
         <Button asChild>

@@ -68,7 +68,7 @@ const Rating = ({ rating, maxRating = 5 }: Props) => {
 
       {/* Teks Rating */}
       <p className="ms-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-        {rating.toFixed(1)} / {maxRating}
+        {rating} / {maxRating}
       </p>
     </div>
   );

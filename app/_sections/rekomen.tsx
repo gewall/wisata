@@ -49,6 +49,8 @@ const Rekomen = () => {
                 nama={_["NAMA OBYEK DAYA TARIK WISATA"]}
                 alamat={_["ALAMAT"]}
                 slug={_["SLUG"]}
+                cover={_["SAMPUL"]}
+                rating={_["RATING"]}
               />
             </Fragment>
           ))}
