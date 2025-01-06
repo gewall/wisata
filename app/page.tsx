@@ -4,8 +4,8 @@ import { Metadata } from "next";
 import Populer from "./_sections/populer";
 import Rekomen from "./_sections/rekomen";
 export const metadata: Metadata = {
-  title: "Sistem Informasi Rekomendasi Wisata",
-  description: "Sistem Informasi Rekomendasi Wisata",
+  title: "Sistem Rekomendasi Objek Wisata",
+  description: "Sistem Rekomendasi Objek Wisata",
 };
 export default function Home() {
   return (

@@ -6,8 +6,8 @@ import Image from "next/image";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Sistem Informasi Rekomendasi Wisata",
-  description: "Sistem Informasi Rekomendasi Wisata",
+  title: "Sistem Rekomendasi Objek Wisata",
+  description: "Sistem Rekomendasi Objek Wisata",
 };
 // export async function generateStaticParams() {
 //   const posts = await fetch(process.env.BASE_URL + "/api/excel").then((res) =>

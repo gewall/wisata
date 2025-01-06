@@ -10,10 +10,14 @@ const links = [
 
 const PageLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
-      <Navbar links={links} />
-      {children}
-      <Footer links={links} />
+    <div className="flex flex-col h-screen">
+      <div className="flex-none">
+        <Navbar links={links} />
+      </div>
+      <div className="flex-1">{children}</div>
+      <div className="flex-none">
+        <Footer links={links} />
+      </div>
     </div>
   );
 };

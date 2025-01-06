@@ -2,8 +2,8 @@ import React from "react";
 import PageLayout from "../_components/PageLayout";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Sistem Informasi Rekomendasi Wisata",
-  description: "Sistem Informasi Rekomendasi Wisata",
+  title: "Sistem Rekomendasi Objek Wisata",
+  description: "Sistem Rekomendasi Objek Wisata",
 };
 const page = () => {
   return (
@@ -13,23 +13,18 @@ const page = () => {
           Tentang Kami
         </h3>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nulla
-          neque, congue ac finibus interdum, tempus eu augue. Proin fringilla,
-          lorem sed venenatis vehicula, elit massa gravida magna, et efficitur
-          ante ipsum vel purus. Integer nec rhoncus felis. Curabitur eu
-          fermentum elit, in fermentum ex. Donec nec ligula sit amet elit
-          dapibus consequat. Fusce sem augue, mattis hendrerit ex et, porttitor
-          dapibus sapien. Orci varius natoque penatibus et magnis dis parturient
-          montes, nascetur ridiculus mus. Donec nunc magna, bibendum eu justo
-          sed, vestibulum varius neque. Maecenas posuere, eros sit amet sodales
-          pharetra, magna est tempor arcu, nec ullamcorper augue metus a magna.
-          Vestibulum sollicitudin ante nibh, et efficitur mauris interdum non.
-          Suspendisse quis mauris id arcu vehicula vulputate. Morbi ornare id
-          metus vitae dignissim. Suspendisse varius, sem eu vulputate
-          ullamcorper, mi orci feugiat ligula, vitae commodo lacus tortor ac
-          nisi. Nam semper est eget fringilla sollicitudin. Nunc accumsan
-          imperdiet elit, dignissim dignissim dui pellentesque molestie. Donec
-          urna dolor, lacinia at erat in, consequat varius tellus.
+          Menyediakan informasi komprehensif tentang berbagai destinasi menarik
+          yang layak untuk dikunjungi. Menyajikan daftar objek wisata yang
+          menarik, termasuk tempat-tempat populer seperti Kebun Teh Cipasung,
+          Terasering Panyaweuyan, dan berbagai curug memukau. Setiap lokasi
+          dilengkapi dengan deskripsi mendetail, alamat, serta informasi
+          mengenai aksesibilitasnya. Menawarkan pesona alam Majalengka, yang
+          memiliki beragam pilihan menarik seperti danau, kebun teh, dan
+          pegunungan. Kami hadir dengan tujuan meningkatkan kesadaran akan
+          potensi pariwisata di Majalengka serta menarik lebih banyak pengunjung
+          untuk menikmati keindahan alam dan kekayaan budaya lokal. Dengan
+          menyediakan informasi yang lengkap dan mudah diakses, para pengunjung
+          dapat merencanakan liburan mereka dengan lebih efisien.
         </p>
       </div>
     </PageLayout>

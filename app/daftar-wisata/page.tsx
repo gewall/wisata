@@ -5,8 +5,8 @@ import Lists from "./_sections/lists";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export const metadata: Metadata = {
-  title: "Sistem Informasi Rekomendasi Wisata",
-  description: "Sistem Informasi Rekomendasi Wisata",
+  title: "Sistem Rekomendasi Objek Wisata",
+  description: "Sistem Rekomendasi Objek Wisata",
 };
 
 const page = () => {
