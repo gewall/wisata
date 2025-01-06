@@ -25,7 +25,7 @@ const Navbar = ({ links }: { links?: iNavbarItem[] }) => {
     <Fragment>
       <nav className="flex justify-between items-center px-8 py-4">
         {/* Logo */}
-        <div className="text-xl font-bold">Wisata</div>
+        <div className="text-xl font-bold">SIROTA</div>
         <form
           method="POST"
           className="relative w-44 md:w-96"

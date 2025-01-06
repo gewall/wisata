@@ -6,10 +6,13 @@ const Footer = ({ links }: { links?: iNavbarItem[] }) => {
   return (
     <footer className="bg-gray-800 text-gray-300">
       <div className="container mx-auto px-6 py-8">
-        <div className="flex flex-wrap justify-between">
+        <div className="flex flex-wrap justify-between ">
           {/* Logo dan Deskripsi */}
           <div className="w-full md:w-1/3 mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold text-white">Wisata</h2>
+            <h2 className="text-lg font-bold text-white">
+              SIROTA <br />
+              (Sistem Rekomedasi Objek Wisata)
+            </h2>
             <p className="mt-2 text-sm">
               Membantu Anda menciptakan pengalaman terbaik.
             </p>
@@ -35,8 +38,8 @@ const Footer = ({ links }: { links?: iNavbarItem[] }) => {
               Kontak Kami
             </h3>
             <ul>
-              <li className="mb-1">Email: info@yourbrand.com</li>
-              <li className="mb-1">Telepon: +62 812 3456 7890</li>
+              <li className="mb-1">Email: alfatarfattar@gmail.com</li>
+              <li className="mb-1">Telepon: 082318018103</li>
               <li>Alamat: Majalengka, Indonesia</li>
             </ul>
           </div>
@@ -48,7 +51,7 @@ const Footer = ({ links }: { links?: iNavbarItem[] }) => {
         {/* Hak Cipta */}
         <div className="mt-6 text-center">
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} Wisata. All rights reserved.
+            &copy; {new Date().getFullYear()} SIROTA. All rights reserved.
           </p>
         </div>
       </div>
