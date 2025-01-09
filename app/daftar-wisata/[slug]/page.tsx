@@ -1,6 +1,12 @@
 import PageLayout from "@/app/_components/PageLayout";
 import Rating from "@/app/_components/Rating";
 import { Badge } from "@/components/ui/badge";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
@@ -70,16 +76,17 @@ const page = async ({ params }: { params: Promise<{ slug: string }> }) => {
                   {post["JUMLAH KUNJUNGAN"]}
                 </td>
               </tr>
-              <tr className="m-0  p-0 ">
+              {/* <tr className="m-0  p-0 ">
                 <td className="w-16 font-bold  py-2 text-left">Jam</td>
                 <td className=" w-1">:</td>
                 <td className="  py-2 text-left">07:00 - 17:00</td>
-              </tr>
+              </tr> */}
               <tr className="m-0  p-0 ">
                 <td className="w-16 font-bold  py-2 text-left">Rating</td>
                 <td className=" w-1">:</td>
-                <td className="  py-2 text-left">
-                  <Rating rating={parseFloat(post["RATING"])} />
+                <td className="py-2 text-left flex gap-2">
+                  <Rating rating={parseFloat(post["RATING"])} />{" "}
+                  <span>berdasaarkan google review.</span>
                 </td>
               </tr>
             </tbody>

@@ -3,6 +3,12 @@ import React from "react";
 import Rating from "./Rating";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export interface iWisata {
   nama?: string;
@@ -29,7 +35,16 @@ const Card = ({ alamat, kunjungan, slug, nama, cover, rating }: iWisata) => {
           {nama}
         </h4>
         <p className="py-2">{alamat}</p>
-        <Rating rating={rating || 0} />
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger className="flex gap-2 items-center">
+              <Rating rating={rating || 0} />
+            </TooltipTrigger>
+            <TooltipContent>
+              <p> Berdasarkan google review</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
       <div className="p-2">
         <Button asChild>
