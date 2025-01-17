@@ -18,15 +18,11 @@ const Rekomen = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/excel");
+        const response = await fetch("/api/wisata");
         const result = await response.json();
         console.log(result);
 
-        if (response.ok) {
-          setData(result.data);
-        } else {
-          setError(result.error);
-        }
+        setData(result.data);
       } catch (err) {
         console.error("Error fetching data:", err);
         setError("Failed to fetch data");
@@ -43,14 +39,14 @@ const Rekomen = () => {
       {data != undefined &&
         shuffleArray(data)
           ?.slice(0, 4)
-          .map((_, i) => (
+          .map((_: any, i) => (
             <Fragment key={i}>
               <Card
-                nama={_["NAMA OBYEK DAYA TARIK WISATA"]}
-                alamat={_["ALAMAT"]}
-                slug={_["SLUG"]}
-                cover={_["SAMPUL"]}
-                rating={_["RATING"]}
+                nama={_?.nama}
+                alamat={_?.alamat}
+                slug={_?.slug}
+                cover={_?.sampul}
+                rating={_?.rating}
               />
             </Fragment>
           ))}

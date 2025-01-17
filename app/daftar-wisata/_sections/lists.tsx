@@ -15,7 +15,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React, { Fragment, useEffect, useState } from "react";
 
 const fuseOptions = {
-  keys: ["NAMA OBYEK DAYA TARIK WISATA", "ALAMAT", "SLUG"], // Kunci yang ingin dicari
+  keys: ["nama", "alamat", "slug"], // Kunci yang ingin dicari
   includeScore: true, // Menampilkan skor relevansi (opsional)
   threshold: 0.3, // Menentukan tingkat fuzzy matching
 };
@@ -35,7 +35,7 @@ const Lists = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/excel");
+        const response = await fetch("/api/wisata");
         const result = await response.json();
         // console.log(result);
 
@@ -67,14 +67,14 @@ const Lists = () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {data.slice(index * 8 - 8, 8 * index).map((_, i) => (
+        {data?.slice(index * 8 - 8, 8 * index).map((_: any, i) => (
           <Fragment key={i}>
             <Card
-              nama={_["NAMA OBYEK DAYA TARIK WISATA"]}
-              alamat={_["ALAMAT"]}
-              slug={_["SLUG"]}
-              cover={_["SAMPUL"]}
-              rating={_["RATING"]}
+              nama={_?.nama}
+              alamat={_?.alamat}
+              slug={_?.slug}
+              cover={_?.sampul}
+              rating={_?.rating}
             />
           </Fragment>
         ))}

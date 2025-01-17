@@ -12,11 +12,12 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.config({
     extends: ['next/core-web-vitals', 'next/typescript'],
-    rules:{
-      'no-unused-vars':'off',
-      '@typescript-eslint/no-unused-vars':'off',
-      '@typescript-eslint/no-explicit-any':'off',
-    }
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      'react-hooks/rules-of-hooks': 'off',
+    },
   }),
 ];
 

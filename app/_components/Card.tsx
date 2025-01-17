@@ -9,6 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { CldImage } from "next-cloudinary";
 
 export interface iWisata {
   nama?: string;
@@ -23,11 +24,20 @@ const Card = ({ alamat, kunjungan, slug, nama, cover, rating }: iWisata) => {
   return (
     <div className="border-2 border-slate-200 rounded-lg max-w-full md:max-w-80  flex flex-col">
       <div className="relative w-full h-48 overflow-hidden">
-        <Image
+        {/* <Image
           src={`https://drive.google.com/uc?export=view&id=${cover}`}
           alt="Wisata"
           fill
           objectFit="cover"
+        /> */}
+        <CldImage
+          src={cover as string} // Use this sample image or upload your own via the Media Explorer
+          fill
+          crop={{
+            type: "auto",
+            source: true,
+          }}
+          alt="Wisata"
         />
       </div>
       <div className="p-2">
@@ -41,7 +51,7 @@ const Card = ({ alamat, kunjungan, slug, nama, cover, rating }: iWisata) => {
               <Rating rating={rating || 0} />
             </TooltipTrigger>
             <TooltipContent>
-              <p> Berdasarkan google review</p>
+              <p> Berdasarkan pengalaman pengunjung</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
