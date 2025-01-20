@@ -18,20 +18,22 @@ export const GET = async() => {
             return new Response(JSON.stringify({message: 'Data objek wisata kosong'}), { status: 201 });
         }
 
+
+       const data = readAll.map(_ => {
+        
         let rating = null
 
-        if (readAll) {
-            const totalRatings = readAll.reduce((acc, item) => acc + item.komentars.reduce((sum, komentar) => sum + komentar.rating.reduce((rSum, r) => rSum + r.rating, 0), 0), 0);
-            const totalKomentars = readAll.reduce((acc, item) => acc + item.komentars.length, 0);
+        if (_) {
+            const totalRatings = _.komentars.reduce((sum, komentar) => sum + komentar.rating.reduce((rSum, r) => rSum + r.rating, 0), 0);
+            const totalKomentars = _.komentars.length;
             const averageRating = totalRatings ? totalRatings / totalKomentars : 0;
             const roundedRating = Math.round(averageRating * 2) / 2; // Round to nearest 0.5
 
             rating = roundedRating;
         }
-
-       const data = readAll.map(_ => ({
+        return {
         ..._,rating:rating
-       }))
+       }})
    
 
 

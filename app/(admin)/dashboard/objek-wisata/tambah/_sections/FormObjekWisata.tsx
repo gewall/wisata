@@ -80,7 +80,7 @@ const FormObjekWisata = (props: Props) => {
           onSubmit={form.handleSubmit(onSubmit, onError)}
           encType="multipart/form-data"
         >
-          <div className="gap-4 grid grid-cols-2">
+          <div className="gap-4 grid md:grid-cols-2">
             <FormField
               control={form.control}
               name="nama"
