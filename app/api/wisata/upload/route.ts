@@ -64,7 +64,7 @@ export const POST = async(request:NextRequest)=> {
     // return new Response(JSON.stringify({message:"Berhasil menambah wisata",data: create}));
     } catch (error:any) {
         if(error)
-            return new Response(JSON.stringify({message:"Error",error:error.message}));
+            return new Response(JSON.stringify({message:"Gagal menambahkan wisata: "+error.message,error:error.message}));
     }
 
    

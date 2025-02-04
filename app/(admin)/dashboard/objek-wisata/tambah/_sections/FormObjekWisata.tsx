@@ -55,7 +55,7 @@ const FormObjekWisata = (props: Props) => {
       const resp = await res.json();
 
       toast({
-        title: "Berhasil Menambah Objek Wisata",
+        title: resp.message.slice(0, 5) + "...",
         description: resp.message,
       });
     } catch (error: any) {
