@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Wisata" ALTER COLUMN "kunjungan" SET DATA TYPE BIGINT,
+ALTER COLUMN "telepon" SET DATA TYPE BIGINT;

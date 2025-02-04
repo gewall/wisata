@@ -37,9 +37,13 @@ export const GET = async() => {
    
 
 
-        return new Response(JSON.stringify({message: 'Berhasil mengambil data',data:data}), { status: 201 });
+        return new Response(JSON.stringify({message: 'Berhasil mengambil data',data:data},(_, v) =>
+            typeof v === "bigint" ? v.toString() : v,), { status: 201 });
     } catch (error:any) {
         if(error)
+            console.log(error.message);
+            
         return new Response(JSON.stringify({message: error?.message}), { status: 500 });
     }
 }
+

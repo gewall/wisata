@@ -16,8 +16,8 @@ export const POST = async(request:NextRequest)=> {
     const slug = file.get("slug") as string;
     const deskripsi = file.get("deskripsi") as string;
     const alamat = file.get("alamat") as string;
-    const kunjungan = parseInt(file.get("kunjungan") as string);
-    const telepon = parseInt(file.get("telepon") as string);
+    const kunjungan = file.get("kunjungan") as string;
+    const telepon = file.get("telepon") as string;
     const galeri = file.getAll("galeri") as File[];
 
 
@@ -49,7 +49,7 @@ export const POST = async(request:NextRequest)=> {
     
 
     const data  = {
-        nama,deskripsi,alamat,kunjungan,telepon,slug,sampul:filePath,galeri:uploadGaleri
+        nama,deskripsi,alamat,kunjungan:kunjungan,telepon:telepon,slug,sampul:filePath,galeri:uploadGaleri
     }
     
     const create = await prisma.wisata.create({
@@ -64,6 +64,8 @@ export const POST = async(request:NextRequest)=> {
     // return new Response(JSON.stringify({message:"Berhasil menambah wisata",data: create}));
     } catch (error:any) {
         if(error)
+            console.log(error.message);
+            
             return new Response(JSON.stringify({message:"Gagal menambahkan wisata: "+error.message,error:error.message}));
     }
 

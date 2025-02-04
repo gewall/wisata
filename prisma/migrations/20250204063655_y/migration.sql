@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Wisata" ALTER COLUMN "kunjungan" SET DATA TYPE TEXT,
+ALTER COLUMN "telepon" SET DATA TYPE TEXT;

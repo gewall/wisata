@@ -13,8 +13,8 @@ model Wisata {
     slug            String          @unique
     nama            String
     alamat          String
-    kunjungan       Int
-    telepon         Int
+    kunjungan       String
+    telepon         String
     deskripsi       String
     sampul          String
     galeri          String

@@ -13,8 +13,8 @@ export const PUT = async (req: Request) => {
         const slug = formData.get("slug") as string;
         const deskripsi = formData.get("deskripsi") as string;
         const alamat = formData.get("alamat") as string;
-        const kunjungan = parseInt(formData.get("kunjungan") as string) || 0;
-        const telepon = parseInt(formData.get("telepon") as string) || 0;
+        const kunjungan = formData.get("kunjungan") as string
+        const telepon = formData.get("telepon") as string
         const galeri = formData.getAll("galeri") as File[];
 
         // Fetch existing data
